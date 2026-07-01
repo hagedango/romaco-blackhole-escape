@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ロマ子様のブラックホール・エスケープ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section id="screen-title" class="screen screen-active" aria-labelledby="title-heading">
+      <div class="panel hero-panel">
+        <p class="eyebrow">Cosmic Survival Mini Game</p>
+        <h1 id="title-heading">ロマ子様の<br>ブラックホール・エスケープ</h1>
+        <p class="lead">
+          ブラックホールの引力と隕石をかわして、
+          できるだけ長く生き延びよう。
+        </p>
+
+        <div class="difficulty-block">
+          <h2>難易度をえらぶ</h2>
+          <div class="difficulty-buttons" role="group" aria-label="難易度選択">
+            <button id="difficulty-easy" class="chip-button chip-active" type="button" data-difficulty="easy">
+              かんたん
+              <span>EASY</span>
+            </button>
+            <button id="difficulty-hard" class="chip-button" type="button" data-difficulty="hard">
+              むずかしい
+              <span>HARD</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="info-grid">
+          <article class="info-card">
+            <h2>あそびかた</h2>
+            <p>矢印キー / WASD / 画面下の方向ボタン / 画面ドラッグで移動できます。</p>
+          </article>
+          <article class="info-card">
+            <h2>ハイスコア</h2>
+            <p id="title-highscore-label">EASY ベスト</p>
+            <p id="title-highscore-value" class="score-highlight">0.0 秒</p>
+          </article>
+        </div>
+
+        <button id="start-button" class="primary-button" type="button">スタート</button>
+      </div>
+    </section>
+
+    <section id="screen-play" class="screen" aria-labelledby="play-heading">
+      <div class="panel play-panel">
+        <div class="play-header">
+          <div>
+            <p class="eyebrow">Now Playing</p>
+            <h2 id="play-heading">生きのびろ、ロマ子様</h2>
+          </div>
+          <div class="score-board">
+            <span id="difficulty-badge" class="difficulty-badge">EASY</span>
+            <p>Score <strong id="score-value">0.0</strong><span> sec</span></p>
+          </div>
+        </div>
+
+        <div class="canvas-frame">
+          <canvas id="game-canvas" width="800" height="600" aria-label="ゲーム画面"></canvas>
+          <div class="canvas-hint">ドラッグでも移動できます</div>
+        </div>
+
+        <div class="mobile-controls" aria-label="モバイル操作ボタン">
+          <button class="control-button control-up" type="button" data-direction="up" aria-label="上"></button>
+          <button class="control-button control-left" type="button" data-direction="left" aria-label="左"></button>
+          <button class="control-button control-right" type="button" data-direction="right" aria-label="右"></button>
+          <button class="control-button control-down" type="button" data-direction="down" aria-label="下"></button>
+          <div class="control-center" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="screen-gameover" class="screen" aria-labelledby="gameover-heading">
+      <div class="panel result-panel">
+        <p class="eyebrow">Mission Failed</p>
+        <h2 id="gameover-heading">GAME OVER</h2>
+        <p class="lead">ブラックホールからは逃げきれませんでした。</p>
+
+        <div class="result-stats">
+          <div class="result-card">
+            <span>今回のスコア</span>
+            <strong id="final-score">0.0 秒</strong>
+          </div>
+          <div class="result-card">
+            <span>ハイスコア</span>
+            <strong id="best-score">0.0 秒</strong>
+          </div>
+        </div>
+
+        <p id="record-banner" class="record-banner" hidden>New Record!</p>
+
+        <div class="result-actions">
+          <button id="retry-button" class="primary-button" type="button">もう一度遊ぶ</button>
+          <button id="back-to-title-button" class="secondary-button" type="button">タイトルへ戻る</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
